@@ -15,8 +15,12 @@ plt.xticks(fontsize=14, fontweight='bold')
 
 # Set y-ticks with increased font size and bold, adding '%' to the labels
 plt.yticks(np.arange(0, 1.2, 0.2), fontsize=14, fontweight='bold')
-formatter = FuncFormatter(lambda y, _: f'{y:.0%}')
-plt.gca().yaxis.set_major_formatter(formatter)
+def percent_formatter(x, pos):
+    return "{:0.2f}%".format(x*100)
+
+# Apply the formatter function to the y-axis
+formatter = FuncFormatter(percent_formatter)
+plt.gca().yaxis.
 
 # Calculate the centers of the first and last bar for correct hline positioning
 bar_centers = range(len(df['MNTH']))  # Assuming 'MNTH' is the x-axis categorical data
