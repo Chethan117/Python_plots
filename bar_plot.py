@@ -20,7 +20,7 @@ def percent_formatter(x, pos):
 
 # Apply the formatter function to the y-axis
 formatter = FuncFormatter(percent_formatter)
-plt.gca().yaxis.
+plt.gca().yaxis.set_major_formatter(formatter)
 
 # Calculate the centers of the first and last bar for correct hline positioning
 bar_centers = range(len(df['MNTH']))  # Assuming 'MNTH' is the x-axis categorical data
